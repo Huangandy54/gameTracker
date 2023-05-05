@@ -1,0 +1,12 @@
+Team stats last 10
+    show basic stats
+        show lineup
+            show lineup stats
+                
+
+
+Player stats Last 10 
+    Show 10 games
+        show lineups of own team 
+            show basic stats of own teammates
+
