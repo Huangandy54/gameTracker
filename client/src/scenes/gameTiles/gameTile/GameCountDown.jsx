@@ -29,6 +29,7 @@ const GameCountDown = ({
 
             if(newCountDown<=0){
                 setIsLive(true);
+                clearTimeout(timer);
             }
         }, 60000);
         return () => clearTimeout(timer);
@@ -43,8 +44,7 @@ const GameCountDown = ({
                     const response = await fetch(`https://game-tracker-dev-api.vercel.app/live/${gameID}`);
                     const data = await response.json();
                     dispatch(updateLiveGame({ gameID: gameID, game: data }));
-                    if(gameData.gameStatus===3){
-                        console.log(gameData)
+                    if(data.gameStatus===3){
                         clearInterval(fetchLiveData)
                     }
                 } catch (error) {
