@@ -23,16 +23,15 @@ const GameTile = ({
     homeTeamLosses,
 }) => {
     const [flip,setFlip] = useState(false);
+    const theme = useTheme();
     const {palette} = useTheme();
-    const primary= palette.primary.main;
-    const main = palette.neutral.main;
-    const medium = palette.neutral.medium;
+    const alt = theme.palette.background.alt;
     console.log(`gameID: ${gameID} gameStatus: ${gameStatus}`);
 
     return(
         <Box onClick={()=>setFlip(!flip)} sx={{
             
-            backgroundColor:"pink", 
+            backgroundColor:alt, 
             display:"flex",
             width:'100%',
             minHeight:'300px',

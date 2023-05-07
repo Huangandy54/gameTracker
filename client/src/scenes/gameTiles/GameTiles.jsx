@@ -26,7 +26,6 @@ const GameTiles = ({reqDate}) =>{
         data.sort((a,b)=>a.scheduledDateTimeUTC >b.scheduledDateTimeUTC ? 1: -1);
         //if today's date is schedule's date then remove games that are not needed.
         const today = new Date().toLocaleDateString('en-ca');
-        console.log(today)
         if(reqDate===today){
             const filteredData=data.filter(obj=>obj.ifNecessary===false);
             dispatch(setSchedule({schedule: filteredData}));
@@ -41,7 +40,6 @@ const GameTiles = ({reqDate}) =>{
                     }
                 }
             })
-            
         }
         //if requested date is in the past 
         else if(reqDate<today){
