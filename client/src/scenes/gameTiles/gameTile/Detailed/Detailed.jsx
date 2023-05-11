@@ -21,7 +21,6 @@ const Detailed = ({
     awayTeamName,
     close,
 }) => {
-    console.log(`gameID: ${gameID} gameStatus: ${gameStatus}`);
     const data = useSelector((state) =>
         gameStatus === 3 ? state.pastGames[gameID] : state.liveGames[gameID]
     );

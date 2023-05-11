@@ -39,7 +39,6 @@ const GameCountDown = ({
     useEffect(()=>{
         if(isLive){
             const fetchLiveData = setInterval(async ()=>{
-                console.log('fetching');
                 try {
                     const response = await fetch(`https://game-tracker-dev-api.vercel.app/live/${gameID}`);
                     const data = await response.json();
