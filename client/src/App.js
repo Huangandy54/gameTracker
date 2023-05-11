@@ -12,12 +12,7 @@ import PropTrackerPage from 'scenes/propPage'
 const App = () => {
   const mode= useSelector((state)=>state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)),[mode])
-  // const dispatch = useDispatch();
-  
-  // useEffect(() => {
-  //   dispatch(getGames());
-  
-  //   }, [dispatch]);
+
   return(
     <div className="app">
       <BrowserRouter>

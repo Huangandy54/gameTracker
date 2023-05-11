@@ -3,7 +3,7 @@ import { Box, useTheme } from "@mui/material";
 import {useState } from "react";
 
 import Overview from "./Overview";
-import Detailed from "./Detailed";
+import Detailed from "./Detailed/Detailed";
 
 const GameTile = ({
     gameID,
@@ -21,19 +21,29 @@ const GameTile = ({
     awayTeamLosses,
     homeTeamWins,
     homeTeamLosses,
+    onClick,
 }) => {
     const [flip,setFlip] = useState(false);
     const theme = useTheme();
-    const {palette} = useTheme();
+    // const {palette} = useTheme();
+    // const primary= palette.primary.main;
+    // const main = palette.neutral.main;
+    // const medium = palette.neutral.medium;
+    
     const alt = theme.palette.background.alt;
-    console.log(`gameID: ${gameID} gameStatus: ${gameStatus}`);
+    
+    const handleClick = ()=>{
+        setFlip(!flip)
+    }
+
+    const tileSize = flip? '700px': 'auto';
 
     return(
-        <Box onClick={()=>setFlip(!flip)} sx={{
+        <Box onClick={()=>{handleClick()}} sx={{
             
             backgroundColor:alt, 
             display:"flex",
-            width:'100%',
+            width: 'auto',
             minHeight:'300px',
             flexDirection:'column',
             justifyContent:'flex-start',
@@ -45,7 +55,7 @@ const GameTile = ({
             {!flip ? 
                 (<Overview {...{gameID, gameStatus, gameDate, scheduledDateTimeUTC, ifNecessary, seriesGameNumber, seriesText, homeTeam, homeTeamName, awayTeam, awayTeamName, awayTeamWins, awayTeamLosses, homeTeamWins, homeTeamLosses}}/>)
             :
-            (null)
+            (<Detailed gameID={gameID} gameStatus={gameStatus} scheduledDateTimeUTC={scheduledDateTimeUTC} homeTeamName={homeTeamName} awayTeamName={awayTeamName} close={handleClick}/>)
             }
 
         </Box>

@@ -31,6 +31,17 @@ export const colorTokens = {
 // MUI theme settings
 export const themeSettings = (mode) =>{
     return{
+        components: {
+            MuiTableCell: {
+              styleOverrides: {
+                root: {
+                    // padding:'3px 8px 3px 8px',
+                    border: '1px solid',
+                    
+                }
+              },
+            },
+          },
         breakpoints:{
             values:{
                 mobile: 0,
