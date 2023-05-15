@@ -36,8 +36,6 @@ const GameTile = ({
         setFlip(!flip)
     }
 
-    const tileSize = flip? '700px': 'auto';
-
     return(
         <Box onClick={()=>{handleClick()}} sx={{
             

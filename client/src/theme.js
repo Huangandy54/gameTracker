@@ -10,8 +10,8 @@ export const colorTokens = {
       500: "#666666",
       600: "#4D4D4D",
       700: "#333333",
-      800: "#1A1A1A",
-      900: "#0A0A0A",
+      800: "#363638",
+      900: "#1C1C1E",
       1000: "#000000",
     },
     primary: {
@@ -68,7 +68,8 @@ export const themeSettings = (mode) =>{
                 },
                 background: {
                     default: colorTokens.gray[900],
-                    alt : colorTokens.gray[800]
+                    alt : colorTokens.gray[800],
+                    cell: colorTokens.gray[600]
                 }
             } : {
                 //light mode
@@ -86,7 +87,8 @@ export const themeSettings = (mode) =>{
                 },
                 background: {
                     default: colorTokens.gray[10],
-                    alt : colorTokens.gray[0]
+                    alt : colorTokens.gray[0],
+                    cell: colorTokens.primary[50]
                 }
             }
         },
@@ -115,8 +117,21 @@ export const themeSettings = (mode) =>{
             },
             h6:{
                 fontFamily: ['Kanit', 'sans-serif'].join(','),
-                fontSize: 14,
+                fontSize: 14, 
+                '@media (max-width:850px)': {
+                    fontSize: 10,
+                },
             },
+            subtitle1:{
+                '@media (max-width:850px)': {
+                    fontSize: 10,
+                },
+            },
+            subtitle2:{
+                '@media (max-width:850px)': {
+                    fontSize: 8,
+                },
+            }
         }
     }
 }

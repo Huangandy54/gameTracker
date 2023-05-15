@@ -7,12 +7,12 @@ const Footer = () => {
 
     const theme = useTheme();
     const alt = theme.palette.background.alt;
-
     return (
         <Box sx={{
             backgroundColor: {alt},
             width:'100%',
-
+            position:'absolute',
+            bottom: 0 
         }}>
             <Container>
                 <Typography variant="h6" align="center" gutterBottom>

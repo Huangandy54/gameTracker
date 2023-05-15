@@ -1,31 +1,23 @@
-import { Box, Typography, Divider, useTheme, Grid,useMediaQuery } from "@mui/material";
-import FlexBetween from "components/FlexBetween";
-import WidgetWrapper from "components/WidgetWrapper";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Box, useTheme, Grid,useMediaQuery} from "@mui/material";
+
+
 import GameTile from 'scenes/gameTiles/gameTile/GameTile'
-import { useScheduleData } from "hooks/useCustomHooks";
 
 
 
 
-const GameTiles = ({reqDate}) =>{
+const GameTiles = ({schedule}) =>{
     const {palette} = useTheme();
     const dark = palette.neutral.dark;
     const medium= palette.neutral.medium;
     const main = palette.neutral.main;
-    //TODO: add loading screen
-    const { isLoading, error } = useScheduleData(reqDate);
-    const navigate= useNavigate();
+    //console.log(schedule)
     const isMobile = useMediaQuery('(max-width: 1000px)');
-    const schedule= useSelector((state)=>state.schedule);
-    console.log(reqDate);
-
-
+    console.log('gameTiles');
+    
     return(
-        <Box sx={{paddingTop:'25px', paddingBottom:'25px'}}>
-            <Grid 
+        <Box sx={{paddingTop:'25px', paddingBottom:'25px', height:'100%'}}>
+                <Grid 
                 container
                 direction='row'
                 justifyContent='space-around'
@@ -88,7 +80,7 @@ const GameTiles = ({reqDate}) =>{
                 )
                     )}
             </Grid>
-            
+
 
         </Box>
     )

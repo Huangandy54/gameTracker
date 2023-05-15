@@ -94,8 +94,20 @@ const createDetailed = (
 };
 
 export const createConciseRows = (data) => {
+    let totalFGMade = 0;
+    let totalFGAttempts = 0;
+    let total3s = 0;
+    let total3Attempts = 0;
+    let totalReb = 0;
+    let totalAssist = 0;
     let result = [];
     data.forEach((player) => {
+        totalFGMade += player.fieldGoalsMade;
+        totalFGAttempts += player.fieldGoalsAttempts;
+        total3s += player.threePointersMade;
+        total3Attempts += player.threePointersAttempted;
+        totalReb += player.reboundsTotal;
+        totalAssist += player.assists;
         result.push(
             createConcise(
                 player.name,
@@ -111,12 +123,37 @@ export const createConciseRows = (data) => {
             )
         );
     });
+    result.push({
+        name: 'Team Total',
+        fieldGoals: `${totalFGMade}-${totalFGAttempts}`,
+        fieldGoal3s: `${total3s}-${total3Attempts}`,
+        rebounds: totalReb,
+        assists: totalAssist,
+    });
     return result;
 };
 
 export const createDetailedRows = (data) => {
+    let totalFGMade = 0;
+    let totalFGAttempts = 0;
+    let total3s = 0;
+    let total3Attempts = 0;
+    let totalFTMade = 0;
+    let totalFTAttempts = 0;
+    let totalReb = 0;
+    let totalAssist = 0;
+    let totalTO = 0;
     let result = [];
     data.forEach((player) => {
+        totalFGMade += player.fieldGoalsMade;
+        totalFGAttempts += player.fieldGoalsAttempts;
+        total3s += player.threePointersMade;
+        total3Attempts += player.threePointersAttempted;
+        totalFTMade += player.freeThrowsMade;
+        totalFTAttempts += player.freeThrowsAttempted;
+        totalReb += player.reboundsTotal;
+        totalAssist += player.assists;
+        totalTO += player.turnovers;
         result.push(
             createDetailed(
                 player.name,
@@ -136,6 +173,15 @@ export const createDetailedRows = (data) => {
                 player.plusMinusPoints
             )
         );
+    });
+    result.push({
+        name: 'Team Total',
+        fieldGoals: `${totalFGMade}-${totalFGAttempts}`,
+        fieldGoal3s: `${total3s}-${total3Attempts}`,
+        freeThrows: `${totalFTMade}-${totalFTAttempts}`,
+        rebounds: totalReb,
+        assists: totalAssist,
+        turnOvers : totalTO
     });
     return result;
 };
