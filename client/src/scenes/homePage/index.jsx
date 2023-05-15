@@ -31,7 +31,7 @@ const HomePage = () => {
             console.log('api call');
             try {
                 const response = await fetch(
-                    `http://localhost:5000/date/${reqDate}`
+                    `https://game-tracker-dev-api.vercel.app/date/${reqDate}`
                 );
                 const data = await response.json();
                 if (data.length === 0) {
@@ -53,7 +53,7 @@ const HomePage = () => {
                         if (a.gameStatus === 3) {
                             try {
                                 const response = await fetch(
-                                    `http://localhost:5000/game/${a.gameID}`
+                                    `https://game-tracker-dev-api.vercel.app/game/${a.gameID}`
                                 );
                                 const pastGameData = await response.json();
                                 dispatch(
@@ -76,7 +76,7 @@ const HomePage = () => {
                     filteredData.forEach(async (a) => {
                         try {
                             const response = await fetch(
-                                `http://localhost:5000/game/${a.gameID}`
+                                `https://game-tracker-dev-api.vercel.app/game/${a.gameID}`
                             );
                             const pastGameData = await response.json();
                             dispatch(
