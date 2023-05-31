@@ -67,7 +67,7 @@ const NavBar = () => {
                     <Box
                         display='flex'
                         justifyContent='space-around'
-                        backgroundColor={neutralLight}
+                        backgroundColor={background}
                         borderRadius="9px"
                         gap="3rem"
                         padding="0.1rem 1.5rem"
@@ -107,10 +107,11 @@ const NavBar = () => {
                     
                     <UpdateScheduleButton />
 
-                    {/* TODO: NOTIFICATION DROPDOWN */}
+                    {/* TODO: NOTIFICATION DROPDOWN
                     <Notifications sx={{ fontSize: '25px' }} 
                     onClick={()=>alert('Tracked games will be implemented')}
                     />
+                     */}
                 </FlexBetween>
             ) : (
                 <IconButton onClick={() => setIsMobileMenu(!isMobileMenu)}>
@@ -155,8 +156,8 @@ const NavBar = () => {
                                 />
                             )}
                         </IconButton>
-                        <Notifications sx={{ fontSize: '25px' }} 
-                        onClick={()=>alert('Tracked games will be implemented')}/>
+                        {/* <Notifications sx={{ fontSize: '25px' }} 
+                        onClick={()=>alert('Tracked games will be implemented')}/> */}
                     </FlexBetween>
                 </Box>
             )}

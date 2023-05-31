@@ -9,6 +9,8 @@ const SingleDetailedBoxScore = ({
     data,
     team,
 }) => {
+    //console.log(data);
+    //console.log(team);
     let rows;
     if (data) {
         if(team==='away'){

@@ -15,9 +15,7 @@ const Footer = () => {
             bottom: 0 
         }}>
             <Container>
-                <Typography variant="h6" align="center" gutterBottom>
-                    GameTracker
-                </Typography>
+                
                 <Typography
                     variant="subtitle1"
                     align="center"
@@ -31,11 +29,10 @@ const Footer = () => {
                     align="center"
                     color="textSecondary"
                 >
-                    All images used on this website are obtained from publicly
-                    available sources. If you believe that we have used an image
-                    that infringes on your rights, please contact us immediately
+                    All images and data used on this website are obtained from publicly
+                    available sources. If you believe that we have infringed on your rights, please contact us immediately
                     and we will remove the image. We make no claim of ownership
-                    of the images used on this website unless otherwise stated.
+                    of the images or data used on this website unless otherwise stated.
                     All images are used for illustrative purposes only, and no
                     commercial or monetary gain is made by using these images.
                 </Typography>

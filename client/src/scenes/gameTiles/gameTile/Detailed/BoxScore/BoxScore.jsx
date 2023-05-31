@@ -35,6 +35,7 @@ const BoxScore = ({ data }) => {
                             displayTeam === 'away' ? 'contained' : 'outlined'
                         }
                         onClick={() => display('away')}
+                        title={data.awayTeamName}
                     >
                         {data.awayTeamName}
                     </Button>
@@ -52,6 +53,7 @@ const BoxScore = ({ data }) => {
                             displayTeam === 'both' ? 'contained' : 'outlined'
                         }
                         onClick={() => display('both')}
+                        title='Both'
                     >
                         Both
                     </Button>
@@ -68,6 +70,7 @@ const BoxScore = ({ data }) => {
                         }
                         onClick={() => display('home')}
                         sx={{ marginLeft: 'auto'}}
+                        title={data.homeTeamName}
                     >
                         {data.homeTeamName}
                     </Button>

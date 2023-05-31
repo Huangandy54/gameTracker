@@ -35,15 +35,17 @@ const GameCountDown = ({
         return () => clearTimeout(timer);
     });
     
-    //API call useEffect
+    //Live Game API call
     useEffect(()=>{
         if(isLive){
             const fetchLiveData = setInterval(async ()=>{
+                console.log('fetching');
                 try {
                     const response = await fetch(`https://game-tracker-dev-api.vercel.app/live/${gameID}`);
                     const data = await response.json();
                     dispatch(updateLiveGame({ gameID: gameID, game: data }));
                     if(data.gameStatus===3){
+                        //console.log(gameData)
                         clearInterval(fetchLiveData)
                     }
                 } catch (error) {

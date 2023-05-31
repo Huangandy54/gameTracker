@@ -13,7 +13,6 @@ const GameTiles = ({schedule}) =>{
     const main = palette.neutral.main;
     //console.log(schedule)
     const isMobile = useMediaQuery('(max-width: 1000px)');
-    console.log('gameTiles');
     
     return(
         <Box sx={{paddingTop:'25px', paddingBottom:'25px', height:'100%'}}>

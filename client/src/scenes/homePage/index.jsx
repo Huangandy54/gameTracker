@@ -21,14 +21,14 @@ const HomePage = () => {
     const [schedule, setSchedule] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    console.log('Homepage');
+    //console.log('Homepage');
 
+    //init schedule API call 
     useEffect(() => {
         const reqDate = dateConvert(date);
         setIsLoading(true);
         setError(null);
         const fetchData = async () => {
-            console.log('api call');
             try {
                 const response = await fetch(
                     `https://game-tracker-dev-api.vercel.app/date/${reqDate}`
@@ -48,7 +48,9 @@ const HomePage = () => {
                         (obj) => obj.ifNecessary === false
                     );
                     setSchedule(filteredData);
-
+                    if(filteredData.length===0){
+                        setError('No Games Today');
+                    }
                     filteredData.forEach(async (a) => {
                         if (a.gameStatus === 3) {
                             try {
@@ -105,6 +107,7 @@ const HomePage = () => {
     }, [dispatch, date]);
 
     const changeDate = (newDate) => {
+        //console.log(newDate);
         setDate(newDate);
     };
 

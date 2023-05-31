@@ -8,6 +8,8 @@ import { themeSettings } from './theme';
 import HomePage from 'scenes/homePage';
 import DetailsPage from 'scenes/detailsPage'
 import PropTrackerPage from 'scenes/propPage'
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 const App = () => {
   const mode= useSelector((state)=>state.mode);
@@ -18,11 +20,13 @@ const App = () => {
       <BrowserRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/game/:gameID' element={<DetailsPage />} />
             <Route path='/Prop-Tracker' element={<PropTrackerPage />}/>
           </Routes>
+          </LocalizationProvider>
         </ThemeProvider>
       </BrowserRouter>
     </div>

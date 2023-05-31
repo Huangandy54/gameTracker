@@ -21,6 +21,7 @@ const Detailed = ({
     awayTeamName,
     close,
 }) => {
+    //console.log(`gameID: ${gameID} gameStatus: ${gameStatus}`);
     const data = useSelector((state) =>
         gameStatus === 3 ? state.pastGames[gameID] : state.liveGames[gameID]
     );
@@ -34,7 +35,6 @@ const Detailed = ({
     };
     const handleGridClick = (event) => {
         event.stopPropagation();
-        // Handle DataGrid click event here
     };
     return (
         <Box
@@ -52,6 +52,7 @@ const Detailed = ({
                 style={{
                     marginLeft: '98%',
                 }}
+                title='Close'
             >
                 <CloseIcon />
             </IconButton>
@@ -73,23 +74,20 @@ const Detailed = ({
                                 display: 'flex',
                                 flexDirection: 'row',
                                 width: '100%',
-                                justifyContent: 'center',
+                                justifyContent: 'space-between',
+                                paddingBottom:'.5rem'
                             }}
                         >
                             <Box
                                 sx={{
-                                    width: '50%',
-                                    display: 'flex',
-                                    justifyContent: 'flex-end',
-                                    paddingBottom:'.5rem'
                                 }}
                             >
-                                <Button variant={displayTeam === 'away' ? 'contained' : 'outlined'} onClick={()=>displayAway()}>
+                                <Button variant={displayTeam === 'away' ? 'contained' : 'outlined'} onClick={()=>displayAway()} title={awayTeamName}>
                                     {awayTeamName}
                                 </Button>
                             </Box>
-                            <Box sx={{ width: '50%', marginLeft:'10px'}}>
-                                <Button variant={displayTeam === 'home' ? 'contained' : 'outlined'} onClick={()=>displayHome()}>
+                            <Box sx={{}}>
+                                <Button variant={displayTeam === 'home' ? 'contained' : 'outlined'} onClick={()=>displayHome()}title={homeTeamName}>
                                     {homeTeamName}
                                 </Button>
                             </Box>
